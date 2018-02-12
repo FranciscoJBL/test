@@ -8,18 +8,24 @@ class Fechas extends CI_Controller {
 		echo 'hola';
 	}
 
-	public function validate_form(){
+	public function form_process(){
 		$dates = $this->input->post('dates');
 		$numbers = $this->input->post('numbers');
 		
 		$dates2= $dates;
 		array_multisort($dates);
-		if($dates != $dates2) return 'Error: Cada fecha debe ser distinta a la anterior';
+		if($dates != $dates2) return 'Error: Cada fecha debe ser mayor a la anterior';
 
 		$x= 0;
 		foreach ($dates as $date){
 			$date = strtotime ( '+'.$numbers['number-'.$x]. 'day', strtotime ( $date ) ) ;
+			if (date('D', date_timestamp_get($date)) == 'Sat'){
+				$date = strtotime ( '+2 day', strtotime ( $date ) ) ;
+			}else if (date('D',date_timestamp_get($date)) == 'Sun'){
+				$date = strtotime ( '+1 day', strtotime ( $date ) ) ;
+			}
 			$x++;
 		}
+		return $dates;
 	}
 }
