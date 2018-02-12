@@ -6,6 +6,7 @@ class Fechas extends CI_Controller {
     {
         parent::__construct();
         $this->load->library('twig');
+        $this->load->helper('form');
     }
 	public function index()
 	{
@@ -13,23 +14,28 @@ class Fechas extends CI_Controller {
 	}
 	//esta funcion recibe dos array, uno con las fechas y otro con los numeros
 	public function form_process(){
+		header('application/x-www-form-urlencoded');
 		$dates = $this->input->post('dates');
 		$numbers = $this->input->post('numbers');
-		
 		$dates2= $dates;
+		if(!is_array($dates)){
+			die ('Error: Datos incorrectos');
+		}else{
 		array_multisort($dates);
-		if($dates != $dates2) return 'Error: Cada fecha debe ser mayor a la anterior';
+		}
+		if($dates != $dates2) die ('Error: Cada fecha debe ser mayor a la anterior');
 
 		$x= 0;
 		foreach ($dates as $date){
-			$date = strtotime ( '+'.$numbers['number-'.$x]. 'day', strtotime ( $date ) ) ;
-			if (date('D', date_timestamp_get($date)) == 'Sat'){
-				$date = strtotime ( '+2 day', strtotime ( $date ) ) ;
-			}else if (date('D',date_timestamp_get($date)) == 'Sun'){
-				$date = strtotime ( '+1 day', strtotime ( $date ) ) ;
+			$date = strtotime ( '+'.$numbers[$x].' day', strtotime ( $date ) );
+			if (date('D', $date) == 'Sat'){
+				$date = strtotime ( '+2 day', $date) ;
+			}else if (date('D',$date) == 'Sun'){
+				$date = strtotime ( '+1 day', $date) ;
 			}
+			$dates2[$x] = date('m/d/Y', $date);
 			$x++;
 		}
-		return $dates;
+		die (json_encode($dates2));
 	}
 }
