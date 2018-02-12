@@ -2,12 +2,16 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Fechas extends CI_Controller {
-
+	 public function __construct()
+    {
+        parent::__construct();
+        $this->load->library('twig');
+    }
 	public function index()
 	{
-		echo 'hola';
+		$this->twig->display('Fechas');
 	}
-
+	//esta funcion recibe dos array, uno con las fechas y otro con los numeros
 	public function form_process(){
 		$dates = $this->input->post('dates');
 		$numbers = $this->input->post('numbers');

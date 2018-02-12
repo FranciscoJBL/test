@@ -6,7 +6,7 @@ bash:
 
 
 rebuild:
-	# rm -Rf vendor/*
+	rm -Rf vendor/*
 	mkdir -p vendor
 	${DCMP} build --no-cache
-	${DCMP} run core ./composer.phar install
+	${DCMP} run core ./composer.phar install --prefer-dist
