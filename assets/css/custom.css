@@ -1,0 +1,30 @@
+.container{
+	background-color: white;
+	margin-top: 2%;
+	padding-top: 1%;
+	padding-left: 2%;
+	padding: 1%;
+	box-shadow: 3px 0px 1px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+	color:#73879C !important;
+	padding-bottom: 3%;
+}
+header{
+	margin-left: 3%;
+	margin-top: 1%;
+}
+.instructions{
+	margin-left: 2%;
+}
+body {
+    background-color: #e7e4e6 !important;
+    font-weight: 340;
+    color:#43596f !important;
+}
+
+#result{
+	margin-left:2%;
+}
+
+.modal-content{
+	margin-left:2%;
+}

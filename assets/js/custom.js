@@ -21,7 +21,18 @@ function requestData(){
                 numbers:numbers
             },
             success:function(data) {
-               alert(data);
+                $('#result').empty();
+
+                if(typeof data == 'string'){
+                    $('#result').append("<li class='data_view'>"+data+"</li>");
+                }else{
+                   data = [data];
+                   $('.content').css("display", "block");
+                   $.each(data[0], function(key, value){
+                     $('#result').append("<li class='data_view'>"+value+"</li>");
+                   });
+                }
+                $("#modal").modal();
             }
         }); 
 }

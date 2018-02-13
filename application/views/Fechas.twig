@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Fechas</title>
-
+     <link rel="stylesheet" href="/assets/css/custom.css"></link>
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -15,66 +15,83 @@
     {% block head %}{% endblock %}
   </head>
     <body>
-        <div class="container">
-            <header>
+         <header>
             <h2>Cálculo de fechas</h2>
             </header>
-            <section>
+        <div class="container">
+            <section class="instructions">
                 <h3>Instrucciones</h3>
-                <span>instrucciones de formulario</span>
+                <span>En cada recuadro ingrese una fecha, a la cual se le sumará el número de la derecha en días (hábiles)</span><br>
+                <span>Cada Fecha ingresada debe ser mayor a la anterior</span>
             </section>
             <section>
                {{form_open('fechas/form_process', 'id="form-template"')}}
-                    <div class="form-group form-inline">
-                        <div class="col-lg-3 col-md-3 col-sm-8 col-xs-12">
-                            <label class="control-label">Fecha</label>
-                            <input type="date" class="dates" name="date-1" required></input>
-                        </div>
-                        <div class="col-lg-8 col-md-8 col-sm-10 col-xs-12">
-                            <label class="control-label">Número de días</label>
-                            <input type="number" class="numbers" name="number-1" required></input>
-                        </div>
+               <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="form-group">   
+                            <label class="control-label">Fecha 1</label>
+                            <input type="date" class="dates form-control" name="date-1" required></input>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="form-group">
+                            <label class="control-label">Días a sumar</label>
+                            <input type="number" class="numbers form-control" name="number-1" required></input>
                    </div>
-                   <div class="form-group form-inline">
-                        <div class="col-lg-3 col-md-5 col-sm-8 col-xs-12">
-                            <label class="control-label">Fecha</label>
-                            <input type="date" class="dates" name="date-2" required></input>
-                        </div>
-                        <div class="col-lg-8 col-md-8 col-sm-10 col-xs-12">
-                            <label class="control-label">Número de días</label>
-                            <input type="number" class="numbers" name="number-2" required></input>
-                        </div>
+                </div>
+               <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="form-group">   
+                            <label class="control-label">Fecha 2</label>
+                            <input type="date" class="dates form-control" name="date-1" required></input>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="form-group">
+                            <label class="control-label">Días a sumar</label>
+                            <input type="number" class="numbers form-control" name="number-1" required></input>
                    </div>
-                   <div class="form-group form-inline">
-                        <div class="col-lg-3 col-md-5 col-sm-8 col-xs-12">
-                            <label class="control-label">Fecha</label>
-                            <input type="date" class="dates" name="date-3" required></input>
-                        </div>
-                        <div class="col-lg-8 col-md-8 col-sm-10 col-xs-12">
-                            <label class="control-label">Número de días</label>
-                            <input type="number" class="numbers" name="number-3" required></input>
-                        </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="form-group">   
+                            <label class="control-label">Fecha 3</label>
+                            <input type="date" class="dates form-control" name="date-1" required></input>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="form-group">
+                            <label class="control-label">Días a sumar</label>
+                            <input type="number" class="numbers form-control" name="number-1" required></input>
                    </div>
-                   <div class="form-group form-inline">
-                        <div class="col-lg-3 col-md-5 col-sm-8 col-xs-12">
-                            <label class="control-label">Fecha</label>
-                            <input type="date" class="dates" name="date-4" required></input>
-                        </div>
-                        <div class="col-lg-8 col-md-8 col-sm-10 col-xs-12">
-                            <label class="control-label">Número de días</label>
-                            <input type="number" class="numbers" name="number-4" required></input>
-                        </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="form-group">   
+                            <label class="control-label">Fecha 4</label>
+                            <input type="date" class="dates form-control" name="date-1" required></input>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="form-group">
+                            <label class="control-label">Días a sumar</label>
+                            <input type="number" class="numbers form-control" name="number-1" required></input>
                    </div>
-                   <div class="col-lg-8 col-md-8 col-sm-10 col-xs-12">
-                    <button class="btn btn-default" type="submit" id="submit">Enviar</button>
-                   </div>
+                </div>
+                <div class=" col-lg-6 col-lg-offset-3 col-md-offset-3 col-md-6 col-sm-12 col-xs-12">
+                        <button class="btn btn-default btn-block" type="submit" id="submit">Calcular</button>
+                </div>
                {{form_close}}
             </section>
-            <section>
-                <div class="result" style="display: none">
-                    <h3>Resultado</h3>
-                    <span></span>
+            <section >
+                <div class="modal fade bd-example-modal-lg" id="modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <h3>Resultado</h3>
+                        <ul id="result">
+                        </ul>
+                    </div>
+                  </div>
                 </div>
+<!--                 <div class="content col-lg-8 col-md-8 col-sm-10 col-xs-12" style="display: none">
+                   
+                </div> -->
             </section>
        </div>
     </body>
@@ -84,6 +101,7 @@
     <!-- Bootstrap -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
      <script src="/assets/js/custom.js"></script>
+
     <!-- script content -->
 	{% block script %}
     {% endblock %}

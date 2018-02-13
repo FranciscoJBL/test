@@ -12,18 +12,18 @@ class Fechas extends CI_Controller {
 	{
 		$this->twig->display('Fechas');
 	}
-	//esta funcion recibe dos array, uno con las fechas y otro con los numeros
+
 	public function form_process(){
 		header('application/x-www-form-urlencoded');
 		$dates = $this->input->post('dates');
 		$numbers = $this->input->post('numbers');
 		$dates2= $dates;
 		if(!is_array($dates)){
-			die ('Error: Datos incorrectos');
+			die (json_encode('Error: Datos incorrectos'));
 		}else{
 		array_multisort($dates);
 		}
-		if($dates != $dates2) die ('Error: Cada fecha debe ser mayor a la anterior');
+		if($dates != $dates2) die (json_encode('Error: Cada fecha debe ser mayor a la anterior'));
 
 		$x= 0;
 		foreach ($dates as $date){
