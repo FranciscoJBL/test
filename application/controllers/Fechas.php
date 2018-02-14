@@ -2,6 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Fechas extends CI_Controller {
+	public $error;
 	 public function __construct()
     {
         parent::__construct();
@@ -17,15 +18,16 @@ class Fechas extends CI_Controller {
 		header('application/x-www-form-urlencoded');
 		$dates = $this->input->post('dates');
 		$numbers = $this->input->post('numbers');
-		$dates2= $dates;
-		if(!is_array($dates)){
-			die (json_encode('Error: Datos incorrectos'));
-		}else{
-		array_multisort($dates);
+		if(!$this->validate($dates)){
+			die (json_encode($this->error));
 		}
-		if($dates != $dates2) die (json_encode('Error: Cada fecha debe ser mayor a la anterior'));
 
-		$x= 0;
+		$result = $this->calculate($dates, $numbers);
+		die (json_encode($result));
+	}
+
+	public function calculate($dates, $numbers){
+		$x=0;
 		foreach ($dates as $date){
 			$date = strtotime ( '+'.$numbers[$x].' day', strtotime ( $date ) );
 			if (date('D', $date) == 'Sat'){
@@ -36,6 +38,26 @@ class Fechas extends CI_Controller {
 			$dates2[$x] = date('m/d/Y', $date);
 			$x++;
 		}
-		die (json_encode($dates2));
+		return array('dates' => $dates2);
+	}
+
+	public function validate($dates){
+		$dates2= $dates;
+		if(!is_array($dates)){
+			$this->set_error ('Error: Datos incorrectos');
+			return false;
+		}else{
+		array_multisort($dates);
+		}
+		if($dates != $dates2) {
+			$this->set_error ('Error: Cada fecha debe ser mayor a la anterior');
+			return false;
+		}
+		return true;
+	}
+
+	private function set_error($e){
+		$this->error = $e;
+		return;
 	}
 }

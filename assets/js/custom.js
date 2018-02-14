@@ -26,9 +26,8 @@ function requestData(){
                 if(typeof data == 'string'){
                     $('#result').append("<li class='data_view'>"+data+"</li>");
                 }else{
-                   data = [data];
                    $('.content').css("display", "block");
-                   $.each(data[0], function(key, value){
+                   $.each(data.dates, function(key, value){
                      $('#result').append("<li class='data_view'>"+value+"</li>");
                    });
                 }
