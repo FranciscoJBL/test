@@ -26,56 +26,64 @@
             </section>
             <section>
                {{form_open('fechas/form_process', 'id="form-template"')}}
-               <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    <div class="form-group">   
-                            <label class="control-label">Fecha 1</label>
-                            <input type="date" class="dates form-control" name="date-1" required></input>
+               <div id="data">
+                   <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <div class="form-group">   
+                                <label class="control-label">Fecha 1</label>
+                                <input type="date" class="dates form-control" name="date-1" required></input>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <div class="form-group">
+                                <label class="control-label">Días a sumar</label>
+                                <input type="number" class="numbers form-control" name="number-1" required></input>
+                       </div>
+                    </div>
+                   <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <div class="form-group">   
+                                <label class="control-label">Fecha 2</label>
+                                <input type="date" class="dates form-control" name="date-1" required></input>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <div class="form-group">
+                                <label class="control-label">Días a sumar</label>
+                                <input type="number" class="numbers form-control" name="number-1" required></input>
+                       </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <div class="form-group">   
+                                <label class="control-label">Fecha 3</label>
+                                <input type="date" class="dates form-control" name="date-1" required></input>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <div class="form-group">
+                                <label class="control-label">Días a sumar</label>
+                                <input type="number" class="numbers form-control" name="number-1" required></input>
+                       </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <div class="form-group">   
+                                <label class="control-label">Fecha 4</label>
+                                <input type="date" class="dates form-control" name="date-1" required></input>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <div class="form-group">
+                                <label class="control-label">Días a sumar</label>
+                                <input type="number" class="numbers form-control" name="number-1" required></input>
+                       </div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    <div class="form-group">
-                            <label class="control-label">Días a sumar</label>
-                            <input type="number" class="numbers form-control" name="number-1" required></input>
-                   </div>
+                <div class=" col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                        <button class="btn btn-success btn-block" id="more">Agregar otra fecha</button>
                 </div>
-               <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    <div class="form-group">   
-                            <label class="control-label">Fecha 2</label>
-                            <input type="date" class="dates form-control" name="date-1" required></input>
-                    </div>
+                <div class=" col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                        <button class="btn btn-danger btn-block" id="delete">Eliminar</button>
                 </div>
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    <div class="form-group">
-                            <label class="control-label">Días a sumar</label>
-                            <input type="number" class="numbers form-control" name="number-1" required></input>
-                   </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    <div class="form-group">   
-                            <label class="control-label">Fecha 3</label>
-                            <input type="date" class="dates form-control" name="date-1" required></input>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    <div class="form-group">
-                            <label class="control-label">Días a sumar</label>
-                            <input type="number" class="numbers form-control" name="number-1" required></input>
-                   </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    <div class="form-group">   
-                            <label class="control-label">Fecha 4</label>
-                            <input type="date" class="dates form-control" name="date-1" required></input>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    <div class="form-group">
-                            <label class="control-label">Días a sumar</label>
-                            <input type="number" class="numbers form-control" name="number-1" required></input>
-                   </div>
-                </div>
-                <div class=" col-lg-6 col-lg-offset-3 col-md-offset-3 col-md-6 col-sm-12 col-xs-12">
-                        <button class="btn btn-default btn-block" type="submit" id="submit">Calcular</button>
+                <div class=" col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-12 col-xs-12">
+                        <button class="btn btn-info btn-block" type="submit" id="submit">Calcular</button>
                 </div>
                {{form_close}}
             </section>
@@ -83,15 +91,12 @@
                 <div class="modal fade bd-example-modal-lg" id="modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
-                        <h3>Resultado</h3>
+                        <h3>Resultado:</h3>
                         <ul id="result">
                         </ul>
                     </div>
                   </div>
                 </div>
-<!--                 <div class="content col-lg-8 col-md-8 col-sm-10 col-xs-12" style="display: none">
-                   
-                </div> -->
             </section>
        </div>
     </body>
