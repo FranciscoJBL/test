@@ -20,13 +20,36 @@ Debemos ejecutar el siguiente comando
 git clone https://github.com/FranciscoJBL/test
 ```
 
-Luego, en la carpeta donde descargamos el proyecto, hacer:
+Se nos creará una carpeta llamada test que contiene el proyecto.
+
+Antes de entar a esta carpeta debemos crear un archivo docker-compose.yml, el cual servirá de guía para que docker levante el proyecto. Para esto creamos un nuevo archivo, lo abrimos con cualquier editor de text y escribimos
+```
+version: '2'
+services:
+  core:
+    build: 
+      context: ./test/
+    volumes:
+      - ./test/:/var/www/html/
+    ports:
+      - 12345:80
+```
+
+NOTA: no se recomienda realizar cambios en este archivo a excepción del puerto.
+
+Nos dirigimos a la carpeta del proyecto
+
+```
+cd test
+```
+
+y levantamos el docker
 
 ```
 docker-compose up --build
 ```
 
-con esto ya deberiamos haber levantado nuestra imagen en docker.
+con esto ya deberiamos tener lista nuestra imagen en docker.
 
 ### Instalar dependencias
 
@@ -45,9 +68,23 @@ php composer.phar install
 php composer.phar update
 ```
 
+### Twig
+
+Para el manejo de las vistas, la aplicación usa la libreria Twig, esta se instala automáticamente por medio del composer, pero adicionalmente a esto tenemos que crear la carpeta de cache y darle los permisos necesarios, lo podemos hacer desde el mismo archivo make:
+
+Si estamos en bash (make bash) debemos salir
+```
+exit
+```
+
+
+una vez afuera, ejecutamos el make correspondiente para crear el directorio
+```
+make twig
+```
 ### Ejecutar el proyecto
 
-Una vez levantada la imagen, el proyecto deberia correr en:
+Una vez levantada la imagen, el proyecto deberia correr en (cambiar el puerto según los cambios realizados en docker-compose.yml):
 ```
 http://localhost:12345/
 ```
@@ -59,4 +96,4 @@ http://localhost:12345/unit/test
 ```
 
 
-Si se tiene cualquier duda con alguno de estos pasos, favor no dudar en contactar
+Ante cualquier duda/consulta respecto al proyecto, dependencias o instalación, favor contactar a francisco.briones.l@gmail.com

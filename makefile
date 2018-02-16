@@ -10,3 +10,7 @@ rebuild:
 	mkdir -p vendor
 	${DCMP} build --no-cache
 	${DCMP} run core ./composer.phar install --prefer-dist
+
+twig:
+	mkdir application/cache
+	chmod -R 777 application/cache
